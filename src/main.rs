@@ -1,4 +1,4 @@
-use sysinfo::{System, SystemExt, ProcessorExt, DiskExt};
+use sysinfo::{System, SystemExt, ProcessorExt, DiskExt, ProcessExt};
 
 fn main() {
     // Membuat objek sistem untuk mendapatkan informasi
@@ -22,7 +22,7 @@ fn main() {
         println!("Used Disk: {} MB", (disk.total_space() - disk.available_space()) / 1024 / 1024);
         println!("Free Disk: {} MB", disk.available_space() / 1024 / 1024);
     }
-    
+
     // Menampilkan informasi semua proses yang sedang berjalan
     for process in system.processes() {
         println!("Process: {} PID: {}", process.1.name(), process.0);
